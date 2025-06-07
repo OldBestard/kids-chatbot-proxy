@@ -1,11 +1,11 @@
 FROM nginx:alpine
 
-# Create the config with Coolify's docker network IP
+# Create the config using the VPS's actual IP
 RUN echo 'server { \n\
     listen 80; \n\
     server_name _; \n\
     location / { \n\
-        proxy_pass http://10.0.0.1:3001; \n\
+        proxy_pass http://69.62.80.206:3001; \n\
         proxy_http_version 1.1; \n\
         proxy_set_header Upgrade $http_upgrade; \n\
         proxy_set_header Connection "upgrade"; \n\
