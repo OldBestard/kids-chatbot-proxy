@@ -1,11 +1,11 @@
 FROM nginx:alpine
 
-# Create the config inline instead of copying
+# Create the config with Coolify's docker network IP
 RUN echo 'server { \n\
     listen 80; \n\
     server_name _; \n\
     location / { \n\
-        proxy_pass http://host.docker.internal:3001; \n\
+        proxy_pass http://10.0.0.1:3001; \n\
         proxy_http_version 1.1; \n\
         proxy_set_header Upgrade $http_upgrade; \n\
         proxy_set_header Connection "upgrade"; \n\
